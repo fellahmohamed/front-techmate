@@ -1,0 +1,160 @@
+:root {
+    --main-blue:#4A69E2;
+    --secondary-color: #2c4755;
+    --main-section-background: #dadada;
+    --main-duration: 0.5s;
+  }
+  /* End Variables */
+  /* Start Global Rules */
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  .date-title i {
+    margin-right: 10px;
+  }
+   .main-title .date-title  {
+        display: flex;
+        justify-content: space-between;
+  }
+  .orders-info {
+    display: grid;
+    margin-top: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 10px;
+    
+  }
+  .orders-info .orders {
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+    border-radius: 16px;
+    padding: 24px 16px;
+    gap: 10px;
+    font-weight: 600;
+  }
+ 
+
+  .orders .first-row p {
+    letter-spacing: 0.4px;
+  }
+  .orders .first-row {
+    display: flex;
+    justify-content: space-between;
+  }
+ 
+  .orders .second-row {
+    display: flex;
+    align-items: center;
+  }
+  
+
+  .second-row  span:first-child   {
+    width: 40px;
+    height: 40px;
+    background-color: var(--main-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  .second-row  span i {
+    color: white;
+  }
+  .second-row span:nth-child(2) {
+    margin-right: 110px;
+  }
+  .second-row span:last-child {
+    margin-left: 8px;
+  }
+  .orders > p {
+    color: rgba(0, 0, 0, 0.7);
+    text-align: right;
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  /* start graph */ 
+.sales {
+  margin-top: 24px;
+  display: flex;
+  gap: 10px;
+}
+.sales .graph-container {
+  background-color: #fafafa;
+  border-radius: 16px;
+  padding: 24px 16px;
+  width: 60%;
+}
+.graph-container .graph-header  {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  border-bottom: 0.5px solid #232321;
+  margin-bottom: 36px;
+}
+
+.graph-header .timing {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 14px;
+  
+}
+.timing button {
+  background-color: #fafafa;
+  letter-spacing: 0.25px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  color: #232321;
+  outline: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.timing button:hover {
+  cursor: pointer;
+}
+.timing button.active {
+  color: white;
+  background-color: #151514;
+}
+.bs-container {
+  background-color: #fafafa;
+  padding: 24px 16px;
+  flex: 1;
+  padding: 28px 16px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+}
+.bs-container .header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 24px;
+  border-bottom: 0.5px solid #232321;
+  width: 100%;
+}
+.bs-container .product-container {
+  display: flex;
+  /* justify-content: ; */
+  gap: 16px;
+  width: 100%;
+}
+.product-container .img-container {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+}
+.product-container .img-container img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+
+  /* end graph section */
