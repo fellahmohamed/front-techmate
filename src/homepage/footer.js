@@ -32,7 +32,7 @@ return(<footer >
 </div>
 </div>
 <hr className='line'></hr>
-<div className="copyright">copyright©2023 all rights reserved | Built BY BYTEBUILDERS &nbsp;&nbsp; <img src={bytes} alt="bytebuilderslogo" height="15px"></img></div>
+<div className="copyright">copyright©2023 all rights reserved | Built BY BYTEBUILDERS &nbsp;&nbsp; <img src={bytes} alt="bytebuilderslogo" className='bbimg' height="15px"></img></div>
 </footer>);
 
 }

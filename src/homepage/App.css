@@ -1,4 +1,4 @@
-*{
+ *{
   font-family: 'Roboto', sans-serif;
   /* color: #4D5E80; */
 
@@ -7,11 +7,18 @@ body{
   margin:0;
   padding: 0;
   background-color:  #F7F8FA;
-  font-family: 'Roboto', sans-serif;
-  
+  font-family: 'Roboto', sans-serif; 
+  zoom: 0.85;
+    
 }
-header{
-  border-bottom: 2px solid #62708C  ;
+@media only screen and (max-width: 800px) {
+  .container2{
+    display: none;
+ 
+  }
+}
+ header{
+  border-bottom: 3px solid #62708C  ;
   height: 85px;
   display: flex;
   padding: 0px 80px 0 60px;
@@ -89,11 +96,12 @@ outline: none;
 }
 
 .container2{
+  box-sizing: border-box;
   margin-left: 60px;
   margin-top: 50px;
   background-color: white;
-  width: 200px;
-  height: 480px;
+  width: 250px;
+  height: 545px;
   border-radius: 10px;
   padding: 25px;
   padding-bottom: 45px;
@@ -123,11 +131,13 @@ margin-left: 15px;
 }
 .innerelem2{
   display: flex;
-  flex-basis:column;
+  flex-basis:row;
   justify-content:space-between;
+  align-items:center;
 }
 .icon2{
-  margin-top: 9%;
+  height: fit-content;
+  margin-top: 3%;
   margin-left: auto;
 }
 .ab{
@@ -135,7 +145,7 @@ margin-left: 15px;
 }
 footer{
   /* border: 1px red solid; */
-  border-top: 2px solid #62708C  ;
+  border-top: 3px solid #62708C  ;
 
   
 }
@@ -156,11 +166,13 @@ footer{
 .footer h2 {
   margin:0;
 }
-
+.sectiontitle h1 {
+  font-size: x-large;
+}
 .searchbar.abcd{
   height:40px;
   background-color: white;
-  border: #859fd4 1px solid;
+  border: #859fd46b 1px solid;
 
 }
 .footSearch{
@@ -181,11 +193,12 @@ footer{
     color: white;
     border: none;
     width:90px;
+    font-size: large;
     cursor: pointer;
   }
   .line{
    
-    height:2px;
+    height:3px;
     background-color: #23407a;
     border-radius: 99px;
     opacity: 0.3;
@@ -244,19 +257,26 @@ footer{
   flex-wrap: wrap;
   justify-content: space-between;  
   gap: 30px;
-  height:760px;
+  /* height:760px; */
   margin-bottom: 30px;
   }
   .firsthero{
-    height:320px;
+    box-sizing: border-box;
+    min-width: fit-content;
+    height:350px;
   /* border: 1px yellow solid; */
-
-    flex-grow: 2;
+    display:flex;
+    flex-direction: row;
+    gap: 30px;
+    width:48%;
     min-width: 40%;
     border-radius: 10px;
     background-color: black;
     padding: 30px; 
+    justify-content: space-evenly;
+    align-items: center;
   }
+  
   .secondhero{
     flex-grow: 1;
     height:350px;
@@ -267,21 +287,199 @@ footer{
   }
 
   .product{
+    box-sizing: border-box;
    height:350px;
    width:255px;
+    padding:20px; 
    border-radius: 10px;
    background-color: white;
    border: #a2b0cc75 1px solid;
+   display: flex;
+   justify-content: space-between;
+   flex-direction: column;
+   padding-bottom: 40px;
   }
   .productcontainer{
     width:100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+
     gap: 30px;
-    justify-content: space-between;
+    justify-content:flex-start;
+    /* border: 1px red solid;  */
+    
+  }
+  .productdetails{
+    display: flex;
+    height:100px;
+    flex-direction: column;
+    justify-content:  space-between;
+    align-items: center;
+   color: #4D5E80;
+
+    margin:0 auto;
+  }
+  .productimage{
+    /* border: 1px red solid; */
+     position: relative;
+    width: 100%; 
+    height: 100%;
+  }
+  .productimage img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .producttype{
+    font-size: small;
+  }
+  .productname{
+    font-size: larger;
   }
   .airpodimg{
-  /* border: 1px yellow solid; */
+  /* border: 3px yellow solid; */
+  width :33%;
+  height:100%;
+  position: relative;
+  
+  /* margin-left: 8%; */
+  }
+  .airpodimg img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all 0.1s ease-in-out;
+  }
+  .airpodimg img:hover{
+    position: absolute;
+    width: 101%;
+    /* height: 102%; */
+    object-fit: contain;
+  }
+  .detailsairpods{
+  /* border: 3px yellow solid; */
+  height:80%;
+  width:30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  color:white;
+  }
+  .detailsairpods span{
+    color: #ff6633;
+    cursor: pointer;
+  }
+  .detailsairpods span:hover{
+    color: #ff6633;
+    font-size: medium;
+  }
+  .firsthero2{
+    box-sizing: border-box;
 
+    height:350px;
+  /* border: 1px yellow solid; */
+    /* display:flex; */
+    /* flex-direction: row; */
+    gap: 30px;
+    width:48%;
+    min-width: 40%;
+    border-radius: 10px;
+    background-color:#f2f3f5;
+    padding: 30px; 
+    /* justify-content: space-evenly; */
+    /* align-items: center; */
+    overflow: hidden;
+  }
+  .circle1{
+    border-radius: 50%;
+    background-color: #edeff2;
+    height: 550px;
+    width: 550px;
+    position: relative;
+    right: 180px;
+    bottom: 120px;
+    z-index: 1;
+  }
+ 
+  .firsthero2 img  {
+    z-index: 300;
+    position: relative;
+    bottom: 550px;
+    right: 5px;
+    height: 250px;
+  }
+  .firsthero2 h2 {
+    z-index: 1000;
+    position: relative;
+    bottom: 530px;
+    left: 150px;
+    color: #23407a;
+  }
+  .secondhero1,.secondhero3{
+    
+background: rgb(0,0,0);
+max-width: 30%;
+
+  }
+  .secondhero2{
+    background:  rgba(228,231,240,1) ;
+    overflow: hidden;
+    max-width: 35%;
+  }
+  .cercle{
+    position: relative;
+    background-color:#C92342 ;
+    height: 500px;
+    width: 500px;
+    border-radius: 50%;
+    right:53px;
+    top:100px;
+    z-index: 0;
+
+
+  }
+  .secondhero2 img{
+    position: relative;
+    bottom: 450px;
+    left: 65px;
+    height:200px;
+  }
+  .secondhero3{
+    color: white;
+    box-sizing: border-box;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
+  .secondhero2 h2{
+   display: flex;
+   justify-content: center;
+   margin-bottom: 0;
+   margin-top: 60px;
+   z-index: 3;
+   color: #23407a;
+  }
+  .secondhero3 img{
+    height: 170px;
+    object-fit: contain;
+  }
+  .bbimg{
+    height: 15px;
+  }
+  .macbook{
+    height: 170px;
+    width: 280px;
+  }
+  .hero h2{
+   font-size: larger;
+  }
+  .footer h3{
+    font-size: larger;
   }
