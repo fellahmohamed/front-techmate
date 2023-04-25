@@ -13,7 +13,7 @@ function Admin() {
  
   
   return (
-    <Router>
+    // <Router>
     <div style={{display: 'flex' }}  >
       <Navbar/>
       <div style={{flex: 1}}>
@@ -29,7 +29,7 @@ function Admin() {
         </div>
       </div>
     </div>
-     </Router>
+    //  </Router>
   );
 }
 

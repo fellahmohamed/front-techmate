@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import {  useState, useRef } from "react"
 import {  useForm } from 'react-hook-form'
 import * as yup from 'yup'
-
+import Cookies from "js-cookie"
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Color } from "../components/Color.js"
 import axios from "axios"
@@ -18,7 +18,8 @@ export const CreateProduct = () => {
     const [isImages, setIsImages] = useState(false)
     const [imagesList, setImagesList] = useState([])
     const [newColor, setNewColor] = useState("")
-
+    const cookieValue = Cookies.get('access_token');
+  
     const fileInputRef = useRef(null)
 
     const [loading, setLoading] = useState(false)
@@ -65,11 +66,11 @@ export const CreateProduct = () => {
         });
         const headers = {
             'Content-Type': 'multipart/form-data',
-            Authorization: 'Barear eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1va2h0YXJraGVsbGFkaTEyQGdtYWlsLmNvbSIsInVzZXJJZCI6IjY0MWM5MmRmMjNmNjRmMzEwMGFkZmEzZSIsImlhdCI6MTY4MDE4MjQxOSwiZXhwIjoxNjgwMTg2MDE5fQ.vJTee51RVH31_-RWtPagmYGq5AVv0lWb7p0ysDPmC28'
+            Authorization: `Barear ${cookieValue}`
         }
 
         setLoading(true)
-        axios.put("http://localhost:3001/admin/product", formData, { headers })
+        axios.put("http://localhost:3001/admin/product", formData, {headers})
             .then(response => {
                 setLoading(false)
                 const message = response.data.message
