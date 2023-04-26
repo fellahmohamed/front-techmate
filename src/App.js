@@ -21,8 +21,9 @@ function App() {
     <Route path="/login" element={<SingIn />}/>
           <Route path="/register" element={<SingUp />}/>
           <Route path="/forgetpassword" element={<ForgetPassword />}/>
-          <Route path="/adminDashboard" element={<Admin />}/>
-          <Route path="/createproduct" element={<CreateProduct />} />
+          <Route path="/admin" element={<Admin />}/>
+          <Route path='/admin/allproducts' element={<h1>all product</h1>}></Route>
+          <Route path="/admin/createproduct" element={<CreateProduct />} />
       
   </Routes>)
 }

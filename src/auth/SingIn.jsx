@@ -121,7 +121,7 @@ function SingIn() {
       if (!res.data.isAdmin){
       navigate('/home')
     }else{
-      navigate('/adminDashboard')
+      navigate('/admin')
         
       }
     } catch (error) {

@@ -2,12 +2,13 @@ import '../css/admin.css'
 import React, { useState } from 'react';
 import logo from '../images/new-logo.svg'
 import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
     // vars and states********************************
     const [isDisplay, setDisplay] = useState(false)
     const [activeLink, setActiveLink] = useState('');
-
+    const navigate = useNavigate()
   
     //Functions***********************************
 
@@ -22,25 +23,26 @@ export const Navbar = () => {
 // THE JSX*************************************
     return (
         <nav className="nav-container">
-            <div className='img-container'>
+            <div className='img-container hover:cursor-pointer' onClick={ () => navigate("/")}>
                 <img src={logo} width="300px"  alt="the logo" />
             </div>
 
             <div className={activeLink === 'Dashboard' ? 'link-container active' : 'link-container'} onClick={handleActiveClick}>
                 <i className="fa-solid fa-house"></i>
-                <Link to="/adminDashboard" className='link' >Dashboard</Link>
+                <Link to="/admin" className='link' >Dashboard</Link>
+             
                
             </div>
 
 
             <div className={activeLink === 'All Products' ? 'link-container active' : 'link-container'} onClick={handleActiveClick}>
                 <i className="fa-solid fa-shop"></i>
-                <Link to="/allproducts" className="link">All Products</Link>
+                <Link to="/admin/allproducts" className="link">All Products</Link>
             </div>
 
             <div className={activeLink === 'Create a new Product' ? 'link-container active' : 'link-container'} onClick={handleActiveClick}>
                 <i className="fa-solid fa-file-lines"></i>
-                <Link to="/createproduct" className='link'>Create a new Product</Link>
+                <Link to="/admin/createproduct" className='link'>Create a new Product</Link>
             </div>
                 
                     <div className='cat'>

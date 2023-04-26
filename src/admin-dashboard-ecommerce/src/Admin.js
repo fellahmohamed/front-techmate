@@ -19,12 +19,7 @@ function Admin() {
       <div style={{flex: 1}}>
         <Header />
         <div style={{backgroundColor: '#dadada', paddingInline: "20px"}}>
-        <Routes>
-          <Route path='/' element={<AdminDashboard />} />
-          <Route path='/createproduct' element={<CreateProduct />} />
-          
-        </Routes> 
-       
+          <AdminDashboard/>
         <Footer />
         </div>
       </div>
