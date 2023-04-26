@@ -10,6 +10,7 @@ import SingIn from "./auth/SingIn";
 import SingUp from "./auth/SingUp";
 import Admin from './admin-dashboard-ecommerce/src/Admin.js';
 import { CreateProduct } from './admin-dashboard-ecommerce/src/pages/createProduct.js';
+import { AllProducts } from './admin-dashboard-ecommerce/src/pages/allProducts';
 
 
 
@@ -22,7 +23,7 @@ function App() {
           <Route path="/register" element={<SingUp />}/>
           <Route path="/forgetpassword" element={<ForgetPassword />}/>
           <Route path="/admin" element={<Admin />}/>
-          <Route path='/admin/allproducts' element={<h1>all product</h1>}></Route>
+          <Route path='/admin/allproducts' element={<AllProducts/>}></Route>
           <Route path="/admin/createproduct" element={<CreateProduct />} />
       
   </Routes>)
