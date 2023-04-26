@@ -4,12 +4,19 @@ import logo from '../images/new-logo.svg'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import { useRef } from 'react';
+import { useEffect } from 'react';
 
 export const Navbar = () => {
     // vars and states********************************
     const [isDisplay, setDisplay] = useState(false)
     const [activeLink, setActiveLink] = useState('');
     const navigate = useNavigate()
+
+    useEffect( () => {
+        const currentPage = window.location.pathname.split('/').pop();
+        setActiveLink(currentPage)
+    }, [])
+   
  
 
     //Functions***********************************
@@ -32,7 +39,7 @@ export const Navbar = () => {
 
             
             <Link to="/admin" className="link">
-                <div className={activeLink === 'Dashboard' ? 'link-container active' : 'link-container'} onClick={handleActiveClick}>
+                <div className={activeLink === 'admin' ? 'link-container active' : 'link-container'} onClick={handleActiveClick}>
                     <i className="fa-solid fa-house"></i>
                     <p >Dashboard</p>
                 </div>
@@ -41,7 +48,7 @@ export const Navbar = () => {
 
             
             <Link to="/admin/allproducts" className="link">
-                <div className={activeLink === 'All Products' ? 'link-container active' : 'link-container'} onClick={handleActiveClick}>
+                <div className={activeLink === 'allproducts' ? 'link-container active' : 'link-container'} onClick={handleActiveClick}>
                     <i className="fa-solid fa-shop"></i>
                     <p >All Products</p>
                 </div>
@@ -49,7 +56,7 @@ export const Navbar = () => {
 
             
             <Link to="/admin/createproduct" className="link">
-                <div className={activeLink === 'All Orders' ? 'link-container active' : 'link-container'} onClick={handleActiveClick}>
+                <div className={activeLink === 'allorders' ? 'link-container active' : 'link-container'} onClick={handleActiveClick}>
                 <i className="fa-solid fa-file-lines"></i>
                     <p>All Orders</p>
                     
