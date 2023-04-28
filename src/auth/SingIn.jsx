@@ -119,7 +119,7 @@ function SingIn() {
       alert('login success')
 
       if (!res.data.isAdmin){
-      navigate('/home')
+      navigate('/')
     }else{
       navigate('/admin')
         

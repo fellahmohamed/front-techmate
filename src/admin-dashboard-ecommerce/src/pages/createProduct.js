@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
-import {  useState, useRef } from "react"
-import {  useForm } from 'react-hook-form'
+import { useState, useRef } from "react"
+import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import Cookies from "js-cookie"
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -10,7 +10,10 @@ import { Image } from "../components/Image.js"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Loading } from "../components/loading.js"
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleUp, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import '../components/css/selectmenu.css'
+import { headers } from "./adminDashboard.js"
 
 export const CreateProduct = () => {
     const [colorsList, setColorsList] = useState([])
@@ -18,8 +21,8 @@ export const CreateProduct = () => {
     const [isImages, setIsImages] = useState(false)
     const [imagesList, setImagesList] = useState([])
     const [newColor, setNewColor] = useState("")
-    const cookieValue = Cookies.get('access_token');
-  
+    // const cookieValue = Cookies.get('access_token');
+
     const fileInputRef = useRef(null)
 
     const [loading, setLoading] = useState(false)
@@ -28,7 +31,7 @@ export const CreateProduct = () => {
     const shema = yup.object().shape({
         name: yup.string().min(4).required("You must add the name of the product"),
         price: yup.number().positive().required('Price is required'),
-        type: yup.string().min(4).required("You must add the type of the product"),
+        // type: yup.string().min(4).required("You must add the type of the product"),
         quantity: yup.number().integer().positive().min(1).required("You must add the Stock Quantity"),
         file: yup.mixed().test("min", "upload one image at least to create the product", () => {
             if (imagesList.length >= 1) {
@@ -41,17 +44,17 @@ export const CreateProduct = () => {
             }
         })
     })
-    const { register,reset,  handleSubmit, formState: { errors } } = useForm({
+    const { register, reset, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(shema)
     })
 
     const onSubmit = (data) => {
-     
+        data.type = selectedOption
         data.colors = colorsList.map((color) => color.colorName)
         data.images = imagesList
         console.log(data)
         CreateProduct(data)
-       
+
 
     }
     const CreateProduct = (data) => {
@@ -64,13 +67,13 @@ export const CreateProduct = () => {
         data.images.forEach(image => {
             formData.append('images', image)
         });
-        const headers = {
-            'Content-Type': 'multipart/form-data',
-            Authorization: `Barear ${cookieValue}`
-        }
+        // const headers = {
+        //     'Content-Type': 'multipart/form-data',
+        //     Authorization: `Barear ${cookieValue}`
+        // }
 
         setLoading(true)
-        axios.put("http://localhost:3001/admin/product", formData, {headers})
+        axios.put("http://localhost:3001/admin/product", formData, { headers })
             .then(response => {
                 setLoading(false)
                 const message = response.data.message
@@ -82,7 +85,7 @@ export const CreateProduct = () => {
             })
             .catch(error => {
                 setLoading(false)
-               
+
                 const message = error.response.data.message
                 notify(message, "Error")
             });
@@ -113,7 +116,7 @@ export const CreateProduct = () => {
 
 
     const deleteColor = function (id) {
-        console.log(id)
+        
         const newColorsList = colorsList.filter((color) => {
             if (color.id === id) {
                 return false
@@ -151,89 +154,116 @@ export const CreateProduct = () => {
             toast.success(message);
         }
     }
+    //******************select menu code  */
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedOption, setSelectedOption] = useState("Smartphones");
 
+    const handleSelectClick = () => {
+        setIsOpen((prev) => !prev);
+    };
 
+    const getOption = (e) => {
+        setSelectedOption(e.target.innerHTML);
+        setIsOpen(true);
+    };
+ 
 
 
 
 
     return (
         <>
-        {loading ? <Loading /> : ( 
-        <div className='main-container'>
-          
-               
+            {loading ? <Loading /> : (
+                <div className='main-container'>
+                    <div className="prod-container">
+                        <div className="form-container">
+                            <form onSubmit={handleSubmit(onSubmit)}>
+                                <h4>Product Name</h4>
+                                <input type="text" placeholder='Lenovo ThinkPad' {...register("name")} />
+                                <p>{errors.name?.message}</p>
+                                <h4>Price of the Product</h4>
+                                <input type="number" step="0.01" placeholder='the price' {...register("price")} />
+                                <p>{errors.price?.message}</p>
+                                <h4>Select a type</h4>
+                                <div class="select-menu" onClick={handleSelectClick}>
+                                    <div class="select">
+                                        <span>{selectedOption}</span>
+                                        <i class={`fas ${isOpen ? "fa-angle-up" : "fa-angle-down"} `}></i>
+                                    </div>
+                                    <div class={`options-list ${isOpen ? "active": ""}`}>
+                                        <div className="option" onClick={(e) => getOption(e)}>Speakers</div>
+                                        <div class="option" onClick={(e) => getOption(e)}>Televisions</div>
+                                        <div class="option" onClick={(e) => getOption(e)}>Smartphones</div>
+                                        <div class="option" onClick={(e) => getOption(e)}>Tablets</div>
+                                        <div class="option" onClick={(e) => getOption(e)}>Watches</div>
+                                        <div class="option" onClick={(e) => getOption(e)}>laptops</div>
+                                        <div class="option" onClick={(e) => getOption(e)}>accessories</div>
+                                        <div class="option" onClick={(e) => getOption(e)}>computers</div>
+                                        <div className="option" onClick={(e) => getOption(e)}>gaming</div>
+                                        <div className="option" onClick={(e) => getOption(e)}>audio</div>
+                                    </div>
+                                </div>
 
-                 <div className="prod-container">
-                 <div className="form-container">
-                     <form onSubmit={handleSubmit(onSubmit)}>
-                         <h4>Product Name</h4>
-                         <input type="text" placeholder='Lenovo ThinkPad' {...register("name")} />
-                         <p>{errors.name?.message}</p>
-                         <h4>Price of the Product</h4>
-                         <input type="number" step="0.01"  placeholder='the price' {...register("price")}  />
-                         <p>{errors.price?.message}</p>
-                         <h4>Type</h4>
-                         <input type="text" placeholder='It has to be one the listed Categories' {...register("type")} />
-                         <p>{errors.type?.message}</p>
-                         <h4>Stock Quantity</h4>
-                         <input type="number" placeholder='How much we have?' {...register("quantity")}   />
-                         <p>{errors.quantity?.message}</p>
-                         <h4>Colors</h4>
-                         {/* the colors section */}
-                         <div className="addColor">
-                             <input onChange={handleChange} value={inputValue} type="text" />
-                             <div onClick={addColor} id="addColor">Add Colors</div>
-                         </div>
-                         <div className='ColorsList'>
-                             {colorsList.map((color, index) => {
-                                 return <Color key={index} colorName={color.colorName} id={color.id} deleteColor={deleteColor} />
-                             })}
-                         </div>
-                         <h4>Upload The Photos of the Product here</h4>
- 
-                         <button type="button" className="upload-imgs" onClick={() => fileInputRef.current.click()} {...register("file")} >upload pictures</button>
-                         <input  multiple accept="image/*" type="file" tabIndex={-1}  className="hiddenInput" ref={fileInputRef}
-                             onChange={handleImage}   />
-                        <p >{errors.file?.message}</p>
-                         <div className='ImagesList'>
-                             {imagesList.map((image, index) => {
-                                 var index = imagesList.indexOf(image)
-                                 return <Image  key={index} imageName={image.name} id={index} deleteImage={deleteImage} />
-                             })}
-                         </div>
- 
- 
-                         <div className="btns">
-                             <button id="u-btn">Upload Product</button>
-                             <button type="button" id="c-btn" onClick={ () => {
-                                 navigate('/')
-                             }}>Cancel</button>
-                         </div>
-                  
-                     </form>
-                 
-                 </div>
- 
- 
- 
- 
-             </div>
- 
-           
-          
-           
-        
+                                {/* <input type="text" placeholder='It has to be one of the listed Categories' {...register("type")} /> */}
+                                {/* <p>{errors.type?.message}</p> */}
+                                <h4>Stock Quantity</h4>
+                                <input type="number" placeholder='How much we have?' {...register("quantity")} />
+                                <p>{errors.quantity?.message}</p>
+                                <h4>Colors</h4>
+                                {/* the colors section */}
+                                <div className="addColor">
+                                    <input onChange={handleChange} value={inputValue} type="text" />
+                                    <div onClick={addColor} id="addColor">Add Colors</div>
+                                </div>
+                                <div className='ColorsList'>
+                                    {colorsList.map((color, index) => {
+                                        return <Color key={index} colorName={color.colorName} id={color.id} deleteColor={deleteColor} />
+                                    })}
+                                </div>
+                                <h4>Upload The Photos of the Product here</h4>
 
-            <ToastContainer style={{ width: "400px" }} />
+                                <button type="button" className="upload-imgs" onClick={() => fileInputRef.current.click()} {...register("file")} >upload pictures</button>
+                                <input multiple accept="image/*" type="file"  tabIndex={-1} className="hiddenInput" ref={fileInputRef}
+                                    onChange={handleImage} />
+                                <p>{errors.file?.message}</p>
+                                <div className='ImagesList'>
+                                    {imagesList.map((image, index) => {
+                                        var index = imagesList.indexOf(image)
+                                        return <Image key={index} imageName={image.name} id={index} deleteImage={deleteImage} />
+                                    })}
+                                </div>
 
-        </div>
-       
-        )}
 
-    
-    </>
+                                <div className="btns">
+                                    <button id="u-btn">Upload Product</button>
+                                    <button type="button" id="c-btn" onClick={() => {
+                                        navigate('/admin/allproducts')
+                                    }}>Cancel</button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+
+
+
+                    </div>
+
+
+
+
+
+
+                    <ToastContainer style={{ width: "400px" }} />
+
+                </div>
+
+            )}
+
+
+        </>
     )
 
-  
+
 }

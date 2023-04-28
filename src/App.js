@@ -11,6 +11,8 @@ import SingUp from "./auth/SingUp";
 import Admin from './admin-dashboard-ecommerce/src/Admin.js';
 import { CreateProduct } from './admin-dashboard-ecommerce/src/pages/createProduct.js';
 import { AllProducts } from './admin-dashboard-ecommerce/src/pages/allProducts';
+import { AllOrders } from './admin-dashboard-ecommerce/src/pages/allOrders';
+import { ProductDetails } from './admin-dashboard-ecommerce/src/pages/productDetails';
 
 
 
@@ -23,7 +25,9 @@ function App() {
           <Route path="/register" element={<SingUp />}/>
           <Route path="/forgetpassword" element={<ForgetPassword />}/>
           <Route path="/admin" element={<Admin />}/>
-          <Route path='/admin/allproducts' element={<AllProducts/>}></Route>
+          <Route path='/admin/allproducts' element={<AllProducts/>}/>
+          <Route path='/admin/product/:id' element={<ProductDetails/>}/>
+          <Route path="/admin/allorders" element={<AllOrders/>} />
           <Route path="/admin/createproduct" element={<CreateProduct />} />
       
   </Routes>)
