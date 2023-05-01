@@ -8,6 +8,7 @@ import { Route,Routes } from 'react-router-dom';
 import ForgetPassword from "./auth/ForgetPassword";
 import SingIn from "./auth/SingIn";
 import SingUp from "./auth/SingUp";
+import SingUp from "./ProductPAge";
 import Admin from './admin-dashboard-ecommerce/src/Admin.js';
 import { CreateProduct } from './admin-dashboard-ecommerce/src/pages/createProduct.js';
 import { AllProducts } from './admin-dashboard-ecommerce/src/pages/allProducts';
@@ -25,7 +26,7 @@ function App() {
           <Route path="/admin" element={<Admin />}/>
           <Route path='/admin/allproducts' element={<AllProducts/>}></Route>
           <Route path="/admin/createproduct" element={<CreateProduct />} />
-      
+          <Route path="/product" element={<ProductPAge />} />
   </Routes>)
 }
 export function Home(){
