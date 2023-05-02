@@ -24,14 +24,14 @@ export default function Lightbox({
               <img
                 src={item}
                 alt=""
-                className=" lg:w-full lg:rounded-2xl"
+                className=" lg:w-full max-[500px]:h-32 lg:rounded-2xl w-full h-64"
               />
 
               <ul>
                 <li>
                   <button
                     onClick={previousSlide}
-                    className="bg-white rounded-full p-5 shadow absolute left-4 top-1/2 -translate-y-1/2"
+                    className="bg-white rounded-full p-5 shadow absolute -left-4 top-1/2 -translate-y-1/2"
                   >
                     <FaChevronLeft />
                   </button>
@@ -39,7 +39,7 @@ export default function Lightbox({
                 <li>
                   <button
                     onClick={nextSlide}
-                    className="bg-white rounded-full p-5 shadow absolute right-4 top-1/2 -translate-y-1/2"
+                    className="bg-white rounded-full p-5 shadow absolute -right-4 top-1/2 -translate-y-1/2"
                   >
                     <FaChevronRight />
                   </button>
