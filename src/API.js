@@ -5,7 +5,8 @@ import Cookies from "js-cookie"
 */
 const API = axios.create({
   baseURL: "http://localhost:3001",
-  timeout: 20000,
+
+  timeout: 60000,
 })
 
 // Add a request interceptor to add the token to each request

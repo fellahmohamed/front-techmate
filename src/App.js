@@ -13,12 +13,15 @@ import { CreateProduct } from './admin-dashboard-ecommerce/src/pages/createProdu
 import { AllProducts } from './admin-dashboard-ecommerce/src/pages/allProducts';
 import { AllOrders } from './admin-dashboard-ecommerce/src/pages/allOrders';
 import { ProductDetails } from './admin-dashboard-ecommerce/src/pages/productDetails';
+import { EditProduct } from './admin-dashboard-ecommerce/src/pages/editProduct';
+import { ToastContainer, toast } from 'react-toastify';
 
 
 
 function App() {
 
   return(
+    <>
   <Routes>
     <Route path='/' element={<Home/>} />
     <Route path="/login" element={<SingIn />}/>
@@ -27,10 +30,14 @@ function App() {
           <Route path="/admin" element={<Admin />}/>
           <Route path='/admin/allproducts' element={<AllProducts/>}/>
           <Route path='/admin/product/:id' element={<ProductDetails/>}/>
+          <Route path='/admin/product/:id/edit' element={<EditProduct/>}/>
           <Route path="/admin/allorders" element={<AllOrders/>} />
           <Route path="/admin/createproduct" element={<CreateProduct />} />
       
-  </Routes>)
+  </Routes>
+  <ToastContainer style={{ width: "400px" }} /> 
+    </>)
+  
 }
 export function Home(){
   let [display,setDisplay]=useState(localStorage.getItem('pageContent') || "main");

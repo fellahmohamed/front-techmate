@@ -1,7 +1,7 @@
 import { ProductCard } from "./productCard";
 import { PaginateCompenent } from "./pagination"
-
-export const ProductsList = ({products, getPage, pageCount,pageIndex}) => {
+import { Loading2 } from "../components/loading"
+export const ProductsList = ({products, getPage, pageCount,pageIndex, notify}) => {
     const subset = []
 
     for (let i = pageIndex;( i < pageIndex + 9 && products.length) ; i++) {
@@ -13,12 +13,12 @@ export const ProductsList = ({products, getPage, pageCount,pageIndex}) => {
           {subset.length >= 1 ? (
             subset.map((prod, index) => {
                 if (prod ) {
-                 return <ProductCard key={index} product={prod} />
+                 return <ProductCard key={index} product={prod}  />
                 }
            
             })
           ) : (
-            <h1>No products found</h1>
+            <Loading2/>
           )}
       
         

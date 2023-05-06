@@ -7,8 +7,8 @@ export const ProductCard = ({product}) => {
         <div className='bg-whiteColor  rounded-2xl'>
             <div className='p-4 gap-4 flex flex-col items-start justify-center '>
             <div className='flex gap-3 w-full items-center justify-between'>
-            <div className=''>
-                <img src={product.imageUrl[0]} alt="the image sample" className=' rounded-lg aspect-square w-24  '  />
+            <div className='relative h-28'>
+                <img src={product.imageUrl[0]} alt="the image sample" className='  w-full h-full roubnded-lg object-contain '  />
             </div>
             <div>
                 <h6 className='font-semibold text-blackColor'>{product.name}</h6>

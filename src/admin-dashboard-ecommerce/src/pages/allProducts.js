@@ -5,7 +5,7 @@ import { Header } from "../components/header"
 import '../css/admin.css'
 import { ProductCard } from "../components/productCard"
 import { PaginateCompenent } from "../components/pagination"
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { useState } from "react"
 import axios from "axios"
@@ -14,11 +14,24 @@ import { Routes, Route, BrowserRouter } from "react-router-dom"
 import Cookies from "js-cookie"
 import API from "../../../API"
 import { useRef } from "react"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { UseProductDeletedContextProvider } from "../components/useContext"
 // import { headers } from "./adminDashboard"
+export const notify = (message, type) => {
+  if (type === "Error") {
+      toast.error(message);
+  } else if (type === "Success") {
+      toast.success(message);
+  }
+}
+
 
 export const AllProducts = () => {
   //*********************states and vars
   const cookieValue = Cookies.get('access_token');
+  const [cookie, setCookie] = useState(Cookies.get("access_token"))
+
   const navigate = useNavigate()
   const [products, setProducts] = useState([])
   const [pageIndex, setPageIndex] = useState(0)
@@ -26,38 +39,47 @@ export const AllProducts = () => {
   const [subsetProducts, setSubsetProdcuts] = useState([])
   const [filterType, setFilterType] = useState("All products")
 
-  
 
 
+ const headers = {
+    'Content-Type': 'multipart/form-data',
+    Authorization: `Barear ${cookie}`
+}
   const getAllProducts = async () => {
     try {
-    // const res = await axios.get("http://localhost:3001/admin/products/statistics", {headers})
-    const res = await API.get("/admin/products/statistics")
-    setProducts(res.data.products)
-    setSubsetProdcuts(res.data.products)
-  } catch (error) { 
-    console.error(error)
-  }
+
+      const res = await axios.get("http://localhost:3001/admin/products/statistics", {headers})
+      // const res = await API.get("/admin/products/statistics")
+      setProducts(res.data.products)
+      setSubsetProdcuts(res.data.products)
+    } catch (error) {
+      console.error(error)
+    }
 
   }
+
+
 
   // **************************functions
   useEffect(() => {
     getAllProducts()
   
 
-  }, [])
+  }, []) 
+  useEffect( () => {
+    headers.Authorization = `Barear ${cookie}`
+  }, [cookie])
 
-  const getPage =  (page) => {  
+  const getPage = (page) => {
     if (page === 1) {
       setPageIndex(0)
     } else {
       setPageIndex((page - 1) * 9)
-      
+
     }
- 
+
   }
-  const getProductsByType = ( type ) => {
+  const getProductsByType = (type) => {
     if (type === "All products") {
       setProducts(subsetProducts)
     } else {
@@ -65,13 +87,13 @@ export const AllProducts = () => {
     }
 
   }
-  useEffect( () => {
+  useEffect(() => {
     getProductsByType(filterType)
   }, [filterType])
-  
-  useEffect( () => {
+
+  useEffect(() => {
     if ((products.length % 9) === 0) {
-      setPages( products.length / 9)
+      setPages(products.length / 9)
     } else {
       setPages(Math.trunc(products.length / 9) + 1)
 
@@ -81,14 +103,13 @@ export const AllProducts = () => {
 
 
 
-const getType = (type) => {
-  setFilterType(type)
-}
-  
-
+  const getType = (type) => {
+    setFilterType(type)
+  }
 
   //********************JSX */
   return (
+
     <div style={{ display: 'flex' }}  >
       <Navbar getType={getType} />
       <div style={{ flex: 1 }}>
@@ -96,7 +117,7 @@ const getType = (type) => {
         <div style={{ backgroundColor: '#dadada', paddingInline: "20px" }}>
           <div className='main-container'>
             <div className='main-title'>
-              <h2>Dashboard</h2>
+              <h2 className="text-2xl font-semibold">All Products</h2>
               <div className='date-title'>
                 <p>Home &gt; All Products</p>
                 <button className="flex bg-blackColor justify-center items-center gap-2.5 uppercase rounded-lg hover:cursor-pointer px-4 py-2
@@ -115,22 +136,23 @@ const getType = (type) => {
             <div className="mt-8 grid-cols-card grid gap-3.5 ">
 
 
-           
-              <ProductsList products={products}  getPage={getPage} pageCount={pages} pageIndex={pageIndex} /> 
-         
+
+              <ProductsList products={products} getPage={getPage} pageCount={pages} pageIndex={pageIndex} />
+
 
             </div>
             {products.length >= 1 ? (
               <div>
-                <PaginateCompenent getPage={getPage}  pageCount={pages} />
+                <PaginateCompenent getPage={getPage} pageCount={pages} />
               </div>
             ) : null}
 
-
+            {/* <ToastContainer style={{ width: "400px" }} /> */}
           </div>
           <Footer />
         </div>
       </div>
     </div>
+
   )
 }

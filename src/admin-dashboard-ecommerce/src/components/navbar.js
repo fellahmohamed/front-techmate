@@ -106,9 +106,9 @@ export const Navbar = ({ getType}) => {
                         <p>All products</p>
                         <span className={clickedType === "All products" ? 'duration-300 w-11 h-11 bg-blueColor text-center text-white rounded': 'duration-300 w-11 h-11 text-center'}>{totalProducts}</span>
                     </div>
-                    {typesInfo.length >= 1 ? (typesInfo.map((type) => {
+                    {typesInfo.length >= 1 ? (typesInfo.map((type, index) => {
                         return (
-                            <div className="category hover:cursor-pointer" onClick={handleTypeClick}>
+                            <div className="category hover:cursor-pointer" onClick={handleTypeClick} key={index}>
                                 <p>{type.type}</p>
                                 <span className={clickedType === type.type ? 'duration-300 w-11 h-11 bg-blueColor text-center text-white rounded': 'duration-300 w-11 h-11 text-center rounded'}>{type.count}</span>
                    
