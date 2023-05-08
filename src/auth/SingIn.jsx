@@ -139,7 +139,7 @@ function SingIn() {
  console.log(dede);
   return (
    <div className=' flex justify-center items-center'>
-     <div className='flex flex-col bg-blue-800 items-start rounded-xl p-12 max-[500px]:px-10 ' style={{marginTop : '50px'}}>
+     <div className='flex flex-col bg-gray-200 items-start rounded-xl p-12 max-[500px]:px-10 ' style={{marginTop : '50px'}}>
            <div className='mb-7'>
             <h1 className='flex text-4xl font-bold mb-2'>Login</h1>
             <Link to="/forgetpassword" className='hover:underline '>
@@ -195,16 +195,21 @@ function SingIn() {
    </div>
    <div className='w-96 flex justify-center items-center my-3'>---------------------<span>OR</span>---------------------</div>
    <div className='flex w-full justify-center '>
-    <button onClick={responseGoogle} 
-    className=" hover:border-black "
-                    >
-                     <div className='w-5'>
+   <button onClick={responseGoogle} 
+     className='
+     mb-4  flex justify-center items-center
+     border-none mt-4 transition duration-500 ease-in-out outline-none rounded-lg w-96 h-12 max-[500px]:w-72 text-white  font-medium
+     hover:bg-white hover:text-black hover:font-medium focus:outline-none 
+     '
+    >
+                      <p className='text-black font-medium'>Google Login</p>
+                     <div className='w-12'>
                      <img
                       className='w-full'
                       src='https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png'      /> 
                       </div>          
                   {/* <MaterialIcon icon="account_box" size={36}/> */}
-                    </button> 
+                    </button>
    </div>
     </div>
    </div>

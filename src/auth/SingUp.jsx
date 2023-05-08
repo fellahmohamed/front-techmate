@@ -44,7 +44,7 @@ function SingUp() {
             // const formatData = new FormData();
             // formatData.append('image' , imageUrl)
           try {
-            await axios.put("http://localhost:3001/auth/signup" , 
+            await axios.post("http://localhost:3001/auth/signup" , 
               {email ,phone,name, password , confirmedPassword , address }
           );
           alert('register completed now Login');
@@ -74,7 +74,7 @@ function SingUp() {
   return (
 
          <div className='  flex justify-center items-center'>
-        <div className='flex flex-col bg-blue-800 items-start rounded-xl px-12 py-8 max-[500px]:px-10' style={{marginTop : '50px'}}>
+        <div className='flex flex-col bg-gray-100 items-start rounded-xl px-12 py-8 max-[500px]:px-10' style={{marginTop : '50px'}}>
         <div className='mb-2'>
         <h1 className='flex text-4xl font-bold m-0'>Register</h1>
         </div>
