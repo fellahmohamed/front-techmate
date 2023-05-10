@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { json, Link, useNavigate } from 'react-router-dom'
 import { useCookies } from "react-cookie";
 import axios from 'axios';
 import * as yup from "yup";
@@ -121,7 +121,15 @@ function SingIn() {
       if (!res.data.isAdmin){
       navigate('/')
     }else{
-      navigate('/admin')
+      
+      window.localStorage.setItem('admin', res.data.isAdmin);
+
+      const roles = res.data.user.adminRoles.roles
+      localStorage.setItem("adminRoles", JSON.stringify(roles))
+      navigate("/admin")
+  
+
+      
         
       }
     } catch (error) {

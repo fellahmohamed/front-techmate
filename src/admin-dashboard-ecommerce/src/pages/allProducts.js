@@ -38,18 +38,14 @@ export const AllProducts = () => {
   const [pages, setPages] = useState(0)
   const [subsetProducts, setSubsetProdcuts] = useState([])
   const [filterType, setFilterType] = useState("All products")
+  const [activePage, setActivePage] = useState(1)
 
-
-
- const headers = {
-    'Content-Type': 'multipart/form-data',
-    Authorization: `Barear ${cookie}`
-}
+  const location = useLocation()
   const getAllProducts = async () => {
     try {
 
-      const res = await axios.get("http://localhost:3001/admin/products/statistics", {headers})
-      // const res = await API.get("/admin/products/statistics")
+      // const res = await axios.get("http://localhost:3001/admin/products/statistics", {headers})
+      const res = await API.get("/admin/products/statistics")
       setProducts(res.data.products)
       setSubsetProdcuts(res.data.products)
     } catch (error) {
@@ -63,20 +59,21 @@ export const AllProducts = () => {
   // **************************functions
   useEffect(() => {
     getAllProducts()
-  
-
   }, []) 
-  useEffect( () => {
-    headers.Authorization = `Barear ${cookie}`
-  }, [cookie])
+  // useEffect( () => {
+  //   headers.Authorization = `Barear ${cookie}`
+  // }, [cookie])
 
-  const getPage = (page) => {
+  const getPage = (page) => { 
+
     if (page === 1) {
       setPageIndex(0)
     } else {
+      
       setPageIndex((page - 1) * 9)
 
     }
+
 
   }
   const getProductsByType = (type) => {
@@ -86,25 +83,29 @@ export const AllProducts = () => {
       setProducts(subsetProducts.filter((product) => product.type === type));
     }
 
-  }
-  useEffect(() => {
-    getProductsByType(filterType)
-  }, [filterType])
 
-  useEffect(() => {
+  }
+  // useEffect(() => {
+  //   getProductsByType(filterType)
+  // }, [filterType])
+
+  useEffect(() => {  
     if ((products.length % 9) === 0) {
       setPages(products.length / 9)
     } else {
       setPages(Math.trunc(products.length / 9) + 1)
-
     }
+    getPage(1)
+
   }, [products])
 
 
 
 
   const getType = (type) => {
-    setFilterType(type)
+    // setFilterType(type)
+
+    getProductsByType(type)
   }
 
   //********************JSX */
@@ -137,13 +138,13 @@ export const AllProducts = () => {
 
 
 
-              <ProductsList products={products} getPage={getPage} pageCount={pages} pageIndex={pageIndex} />
+              <ProductsList products={products}  pageIndex={pageIndex} />
 
 
             </div>
             {products.length >= 1 ? (
               <div>
-                <PaginateCompenent getPage={getPage} pageCount={pages} />
+                <PaginateCompenent getPage={getPage} pages={pages} products={products} />
               </div>
             ) : null}
 

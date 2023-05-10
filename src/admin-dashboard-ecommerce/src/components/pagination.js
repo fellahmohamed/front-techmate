@@ -1,21 +1,25 @@
 
 import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
-export const PaginateCompenent = ( {pageCount, getPage}) => {
+export const PaginateCompenent = ( {pages, getPage, products}) => {
         const handlePageClick = (data) => {
+            console.log(products)
+            console.log("the pages" , pages)
             getPage(data.selected + 1)
-   
+            
         } 
-        
-
+      
+       
+    
     return (
         <ReactPaginate
         breakLabel="..."
         nextLabel=" > "
         onPageChange={handlePageClick}
+        
         marginPagesDisplayed={1}
         pageRangeDisplayed={4}
-        pageCount={pageCount}
+        pageCount={pages}
         previousLabel=" < "
         renderOnZeroPageCount={null}
         containerClassName={" flex p-3 justify-start gap-5 items-center mt-4"}
@@ -30,6 +34,8 @@ export const PaginateCompenent = ( {pageCount, getPage}) => {
         activeClassName={"flex justify-center items-center py-2 px-4  bg-blackColor "}
         activeLinkClassName={"text-white"}
         disabledClassName={"previousClassName"}
+       
+    
       />
 
     )

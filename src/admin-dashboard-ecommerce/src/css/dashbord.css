@@ -99,12 +99,12 @@
   margin-bottom: 36px;
 }
 
-.graph-header .timing {
+/* .graph-header .timing {
   display: flex;
   justify-content: space-evenly;
   gap: 14px;
   
-}
+} */
 .timing button {
   background-color: #fafafa;
   letter-spacing: 0.25px;
