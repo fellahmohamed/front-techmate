@@ -103,8 +103,8 @@
 <tr>
 <td align="center">
 <b>Leadership</b><br>
-👨‍💼 FELLAH Mohamed Amine (Team Lead)<br>
-👨‍🔧 KHELLADI Mokhtar (Quality Manager)
+👨‍💼 FELLAH Mohamed Amine (Team Lead / developper)<br>
+👨‍🔧 KHELLADI Mokhtar (Quality Manager/developper)
 </td>
 <td align="center">
 <b>Development Team</b><br>
@@ -124,7 +124,6 @@
 <tr>
 <td align="center">
 <b>ESI-SBA Supervisors</b><br>
-👨‍🏫 Pr. AMAR BENSABER Djamel<br>
 👨‍🏫 Dr. MAHAMMED NADIR<br>
 👨‍🏫 Dr. KLOUCHE BADIA
 </td>
