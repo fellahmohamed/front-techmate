@@ -1,10 +1,14 @@
 Tech-mate E-commerce Platform
 An advanced e-commerce solution for electronic products, developed by ByteBuilders. This platform provides a comprehensive shopping experience with robust admin functionalities.
+
 🌟 Features
+
 Customer Features
 
 User authentication (sign up, sign in, password recovery)
+
 Product browsing with advanced search and filtering
+
 Shopping cart management
 Wishlist functionality
 Order tracking
