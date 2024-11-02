@@ -1,87 +1,157 @@
-Tech-mate E-commerce Platform
-An advanced e-commerce solution for electronic products, developed by ByteBuilders. This platform provides a comprehensive shopping experience with robust admin functionalities.
+<div align="center">
 
-🌟 Features
+# 🛍️ Tech-mate E-commerce Platform
 
-Customer Features
+[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://img.shields.io/badge/version-2.0-blue.svg)
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://img.shields.io/badge/build-passing-brightgreen.svg)
+[![License](https://img.shields.io/badge/license-proprietary-red.svg)](https://img.shields.io/badge/license-proprietary-red.svg)
 
-User authentication (sign up, sign in, password recovery)
+> A sophisticated e-commerce solution for electronic products, crafted with precision by ByteBuilders.
 
-Product browsing with advanced search and filtering
+[Features](#features) •
+[Requirements](#requirements) •
+[Team](#team) •
+[Documentation](#documentation)
 
-Shopping cart management
-Wishlist functionality
-Order tracking
-Product ratings and reviews
-Secure checkout process
-Payment options (Online/Cash on delivery)
-User profile management
-Order history
-Activity tracking
+</div>
 
-Admin Features
-Product Management
+---
 
-Product CRUD operations
-Inventory management
-Product categorization
-Image management
+## ✨ Features
 
-Order Management
+<details>
+<summary><b>🛒 Customer Experience</b></summary>
 
-Order tracking
-Order status updates
-Order filtering and search
-Sales statistics
+### Authentication & Profile
+- 🔐 Secure sign up and sign in
+- 🔄 Password recovery system
+- 👤 Personalized profile management
+- 📊 Activity tracking dashboard
 
-User Management (Super Admin)
+### Shopping Experience
+- 🔍 Advanced product search and filtering
+- 🛍️ Intuitive shopping cart management
+- ❤️ Wishlist functionality
+- ⭐ Product ratings and reviews
 
-User blacklisting/whitelisting
-Admin role management
-User activity monitoring
-Admin privileges control
+### Orders & Payments
+- 💳 Secure checkout process
+- 💰 Multiple payment options
+  - Online payment
+  - Cash on delivery
+- 📦 Real-time order tracking
+- 📜 Comprehensive order history
+</details>
 
-🛠️ Technical Requirements
-Performance
+<details>
+<summary><b>⚙️ Admin Dashboard</b></summary>
 
-High concurrent user request handling
-Optimized response times
-Scalable codebase and database structure
+### Product Management
+- 📝 Complete CRUD operations
+- 📦 Inventory tracking
+- 🏷️ Category organization
+- 🖼️ Image management system
 
-Security
+### Order Operations
+- 📊 Sales statistics and analytics
+- 🔄 Order status management
+- 🔍 Advanced order filtering
+- 📨 Order tracking system
 
-Encrypted user data
-Secure authentication system
-Protected payment processing
-Role-based access control
+### User Administration
+- 👥 User management
+- 🚫 Blacklist/Whitelist system
+- 👑 Role-based access control
+- 📈 User activity monitoring
+</details>
 
-User Experience
+---
 
-Intuitive navigation
-Responsive design
-Seamless checkout process
-Cross-browser compatibility
+## 🛠️ Technical Requirements
 
-👥 Team
-ByteBuilders Development Team:
+<table>
+<tr>
+<td>
 
-FELLAH Mohamed Amine (Team Leader)
-KHELLADI Mokhtar (Quality Manager)
-REMMANE Mohamed (Developer)
-SERRADJ Mohamed (Developer)
-TIGHA Mohamed (Developer)
-TITOUAH YACINE (Developer)
+### 🚀 Performance
+- High concurrency support
+- Optimized response times
+- Scalable architecture
+</td>
+<td>
 
-📄 License
-All rights reserved by ByteBuilders © 2023
-🏫 Project Context
-This project was developed for ESI-SBA (École Supérieure en Informatique de Sidi Bel Abbès) under the supervision of:
+### 🔒 Security
+- Data encryption
+- Secure authentication
+- Protected payments
+</td>
+<td>
 
-Dr. MAHAMMED NADIR
-Dr. KLOUCHE BADIA
+### 💫 User Experience
+- Responsive design
+- Intuitive navigation
+- Cross-browser support
+</td>
+</tr>
+</table>
 
+---
 
+## 👥 Team ByteBuilders
 
+<table>
+<tr>
+<td align="center">
+<b>Leadership</b><br>
+👨‍💼 FELLAH Mohamed Amine (Team Lead)<br>
+👨‍🔧 KHELLADI Mokhtar (Quality Manager)
+</td>
+<td align="center">
+<b>Development Team</b><br>
+👨‍💻 REMMANE Mohamed<br>
+👨‍💻 SERRADJ Mohamed<br>
+👨‍💻 TIGHA Mohamed<br>
+👨‍💻 TITOUAH YACINE
+</td>
+</tr>
+</table>
+
+---
+
+## 🎓 Project Supervision
+
+<table>
+<tr>
+<td align="center">
+<b>ESI-SBA Supervisors</b><br>
+👨‍🏫 Pr. AMAR BENSABER Djamel<br>
+👨‍🏫 Dr. MAHAMMED NADIR<br>
+👨‍🏫 Dr. KLOUCHE BADIA
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+## 📚 Documentation
+
+[Requirements Doc](docs/requirements.md) •
+[API Docs](docs/api.md) •
+[User Guide](docs/user-guide.md)
+
+---
+
+### 📜 License
+
+Copyright © 2023 ByteBuilders. All rights reserved.
+
+---
+
+<sub>Made with ❤️ by ByteBuilders in Sidi Bel Abbès, Algeria</sub>
+
+</div>
 
 # Getting Started with Create React App
 
