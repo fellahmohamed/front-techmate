@@ -1,3 +1,84 @@
+Tech-mate E-commerce Platform
+An advanced e-commerce solution for electronic products, developed by ByteBuilders. This platform provides a comprehensive shopping experience with robust admin functionalities.
+🌟 Features
+Customer Features
+
+User authentication (sign up, sign in, password recovery)
+Product browsing with advanced search and filtering
+Shopping cart management
+Wishlist functionality
+Order tracking
+Product ratings and reviews
+Secure checkout process
+Payment options (Online/Cash on delivery)
+User profile management
+Order history
+Activity tracking
+
+Admin Features
+Product Management
+
+Product CRUD operations
+Inventory management
+Product categorization
+Image management
+
+Order Management
+
+Order tracking
+Order status updates
+Order filtering and search
+Sales statistics
+
+User Management (Super Admin)
+
+User blacklisting/whitelisting
+Admin role management
+User activity monitoring
+Admin privileges control
+
+🛠️ Technical Requirements
+Performance
+
+High concurrent user request handling
+Optimized response times
+Scalable codebase and database structure
+
+Security
+
+Encrypted user data
+Secure authentication system
+Protected payment processing
+Role-based access control
+
+User Experience
+
+Intuitive navigation
+Responsive design
+Seamless checkout process
+Cross-browser compatibility
+
+👥 Team
+ByteBuilders Development Team:
+
+FELLAH Mohamed Amine (Team Leader)
+KHELLADI Mokhtar (Quality Manager)
+REMMANE Mohamed (Developer)
+SERRADJ Mohamed (Developer)
+TIGHA Mohamed (Developer)
+TITOUAH YACINE (Developer)
+
+📄 License
+All rights reserved by ByteBuilders © 2023
+🏫 Project Context
+This project was developed for ESI-SBA (École Supérieure en Informatique de Sidi Bel Abbès) under the supervision of:
+
+Dr. MAHAMMED NADIR
+Dr. KLOUCHE BADIA
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
